@@ -5,6 +5,12 @@
  */
 package mypackage;
 
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+
 /**
  *
  * @author user
@@ -16,8 +22,45 @@ public class Java_tic_tac_toe extends javax.swing.JFrame {
      */
     public Java_tic_tac_toe() {
         initComponents();
+        addAction();
     }
-
+       
+    //create action
+    //x_or_0 is used to display x or 0
+    int x_or_0 = 0;
+    
+    public ActionListener createAction(JButton button)
+    {
+        ActionListener al = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                if(button.getText().equals("")){
+                    if(x_or_0 % 2 == 0){
+                        button.setText("X");
+                        button.setForeground(Color.BLUE);
+                    }
+                    else{
+                        button.setText("0");
+                        button.setForeground(Color.RED);
+                    }
+                    x_or_0++;
+                }
+            }
+        };
+        return al;
+    }
+    
+    //function to add action to buttons
+    public void addAction()
+    {
+        Component[] comps = jPanel1.getComponents();
+        for(Component comp : comps){
+            if(comp instanceof JButton){
+                JButton button = (JButton)comp;
+                button.addActionListener(createAction(button));
+            }
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
