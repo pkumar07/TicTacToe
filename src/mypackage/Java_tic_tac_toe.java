@@ -24,6 +24,61 @@ public class Java_tic_tac_toe extends javax.swing.JFrame {
         initComponents();
         addAction();
     }
+    
+    public void winEffect(JButton b1, JButton b2, JButton b3)
+    {
+        b1.setBackground(Color.BLACK);
+        b2.setBackground(Color.BLACK);
+        b3.setBackground(Color.BLACK);
+        
+        b1.setForeground(Color.WHITE);
+        b2.setForeground(Color.WHITE);
+        b3.setForeground(Color.WHITE);
+        
+    }
+    
+    public void getTheWinner() {
+        if(!jButton1.getText().equals("") && jButton1.getText().equals(jButton2.getText()) && jButton1.getText().equals(jButton3.getText()) ){
+            winEffect(jButton1, jButton2, jButton3);
+        }
+        
+        if(!jButton4.getText().equals("") && jButton4.getText().equals(jButton5.getText()) && jButton4.getText().equals(jButton6.getText()) ){
+            System.out.println("Winneerr2");
+            winEffect(jButton4, jButton5, jButton6);
+        }
+        
+        if(!jButton7.getText().equals("") && jButton7.getText().equals(jButton8.getText()) && jButton7.getText().equals(jButton9.getText()) ){
+            System.out.println("Winneerr3");
+            winEffect(jButton7, jButton8, jButton9);
+        }
+        
+        if(!jButton1.getText().equals("") && jButton1.getText().equals(jButton4.getText()) && jButton1.getText().equals(jButton7.getText()) ){
+            System.out.println("Winneercol1");
+            winEffect(jButton1, jButton4, jButton7);
+        }
+        
+        if(!jButton2.getText().equals("") && jButton2.getText().equals(jButton5.getText()) && jButton2.getText().equals(jButton8.getText()) ){
+            System.out.println("Winneercol2");
+            winEffect(jButton2, jButton5, jButton8);
+        }
+        
+        if(!jButton3.getText().equals("") && jButton3.getText().equals(jButton6.getText()) && jButton3.getText().equals(jButton9.getText()) ){
+            System.out.println("Winneercol3");
+            winEffect(jButton3, jButton6, jButton9);
+        }
+        
+        //Add diagonals
+        if(!jButton1.getText().equals("") && jButton1.getText().equals(jButton5.getText()) && jButton1.getText().equals(jButton9.getText()) ){
+            System.out.println("Winneerdiag1");
+            winEffect(jButton1, jButton5, jButton9);
+        }
+        
+        if(!jButton3.getText().equals("") && jButton3.getText().equals(jButton5.getText()) && jButton3.getText().equals(jButton7.getText()) ){
+            System.out.println("Winneerdiag2");
+            winEffect(jButton3, jButton5, jButton7);
+        }
+    }
+    
        
     //create action
     //x_or_0 is used to display x or 0
@@ -38,11 +93,13 @@ public class Java_tic_tac_toe extends javax.swing.JFrame {
                     if(x_or_0 % 2 == 0){
                         button.setText("X");
                         button.setForeground(Color.BLUE);
+                        getTheWinner();
                     }
                     else{
                         button.setText("0");
                         button.setForeground(Color.RED);
-                    }
+                        getTheWinner();
+                   }
                     x_or_0++;
                 }
             }
@@ -73,18 +130,45 @@ public class Java_tic_tac_toe extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton10 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setBorder(null);
+
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jButton2.setBorder(null);
+
+        jButton4.setBackground(new java.awt.Color(255, 255, 255));
+        jButton4.setBorder(null);
+
+        jButton5.setBackground(new java.awt.Color(255, 255, 255));
+        jButton5.setBorder(null);
+
+        jButton6.setBackground(new java.awt.Color(255, 255, 255));
+        jButton6.setBorder(null);
+
+        jButton7.setBackground(new java.awt.Color(255, 255, 255));
+        jButton7.setBorder(null);
+
+        jButton8.setBackground(new java.awt.Color(255, 255, 255));
+        jButton8.setBorder(null);
+
+        jButton9.setBackground(new java.awt.Color(255, 255, 255));
+        jButton9.setBorder(null);
+
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
+        jButton3.setBorder(null);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -106,13 +190,13 @@ public class Java_tic_tac_toe extends javax.swing.JFrame {
                             .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
                             .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(29, Short.MAX_VALUE))
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(193, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,8 +204,8 @@ public class Java_tic_tac_toe extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -152,8 +236,8 @@ public class Java_tic_tac_toe extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(66, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -174,12 +258,12 @@ public class Java_tic_tac_toe extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(144, 144, 144)
                         .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(47, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
